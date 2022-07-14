@@ -4,6 +4,7 @@ import { Paper, Typography, useMediaQuery } from '@material-ui/core';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Rating from '@material-ui/lab/Rating';
 import useStyles from './styles';
+import mapStyles from './mapStyles';
 
 const Map = ({ places, setCoordinates, setBounds, coordinates, setChildClicked, weatherData }) => {
     const classes = useStyles();
@@ -15,6 +16,7 @@ const Map = ({ places, setCoordinates, setBounds, coordinates, setChildClicked, 
                 bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
                 center={coordinates}
                 defaultZoom={14}
+                options={{disableDefaultUI: true, zoomControl: true, style: mapStyles}}
                 margin={[50, 50, 50, 50]}
                 onChange={(e) => {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
