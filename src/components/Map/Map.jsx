@@ -5,7 +5,7 @@ import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import Rating from '@material-ui/lab/Rating';
 import useStyles from './styles';
 
-const Map = ({ places, setCoordinates, setBounds, coordinates }) => {
+const Map = ({ places, setCoordinates, setBounds, coordinates, setChildClicked }) => {
     const classes = useStyles();
     const isDesktop = useMediaQuery('(min-width:600px)');
 
@@ -20,6 +20,7 @@ const Map = ({ places, setCoordinates, setBounds, coordinates }) => {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
                     setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
                 }}
+                onChildClick = {(child) => setChildClicked(child)}
             >
                 { places?.map((place, i) => (
                     <div
