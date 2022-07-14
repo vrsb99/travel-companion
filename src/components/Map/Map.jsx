@@ -11,12 +11,10 @@ const Map = ({setCoordinates, setBounds, coordinates }) => {
 
     return (
         <div className={classes.mapContainer}>
-            Map
             <GoogleMapReact
                 bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
-                defaultCenter={coordinates}
                 center={coordinates}
-                defaultZoom={isMobile ? 12 : 14}
+                zoom = {14}
                 margin={[50, 50, 50, 50]}
                 onChange={(e)=> {
                     setCoordinates({ lat: e.center.lat, lng: e.center.lng });
